@@ -10,11 +10,9 @@
 
 # Project Description
 
-Autonomous vehicles rely on multiple cameras to perceive their surroundings. However, perception gaps can occur due to limited camera field of view or camera failure. Missing visual information can reduce the ability of the vehicle to respond to unexpected conditions.
+Autonomous vehicles use multiple strategically placed cameras to maintain a continuous understanding of their surroundings. However, gaps in information can still occur due to limited camera fields of view or camera failure. Such gaps in environmental perception can lead to critical failures and potential accidents, as the vehicle is unable to respond to unknown conditions.
 
-The goal of this project is to develop a proof-of-concept system that reconstructs missing visual regions in panoramic driving scenes. Multi-camera images will be stitched into panoramic views, and artificial gaps will be introduced to simulate missing visual information.
-
-AI-based reconstruction models such as image inpainting or masked autoencoders will then be used to fill in the missing regions. The reconstructed images will be evaluated to determine how reconstruction quality affects downstream perception tasks such as object detection.
+The goal of this project is to address this challenge by developing a proof-of-concept model that reconstructs a panoramic view from multiple camera images and fills missing regions or gaps. To simulate missing data, portions of the panoramic image will be artificially removed, after which AI models with purposes similar to masked autoencoding and image inpainting will be used to reconstruct the missing areas. As a part of this project, we will investigate what types of image context are necessary for accurate reconstruction and identify the threshold of information loss beyond which the model can no longer reliably recover the scene and the reconstructed output becomes unreliable.
 
 ---
 
