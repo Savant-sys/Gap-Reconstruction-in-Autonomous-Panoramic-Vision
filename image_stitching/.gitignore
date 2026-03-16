@@ -1,0 +1,8 @@
+# Dataset files (too large for git)
+dataset/
+*.parquet
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo

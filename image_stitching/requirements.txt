@@ -1,0 +1,11 @@
+# Image stitching pipeline for Waymo Open Dataset
+# Python 3.8+
+
+# Parquet I/O for Waymo camera_image tables
+pyarrow>=12.0.0
+
+# Image decoding and stitching
+opencv-python>=4.8.0
+
+# Array operations (optional; OpenCV uses NumPy)
+numpy>=1.24.0
