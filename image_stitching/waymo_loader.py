@@ -27,7 +27,7 @@ CAMERA_NAME_MAP = {
     5: "SIDE_RIGHT",
 }
 
-# Default order for left-to-right panorama (driver view: left side of car = left of panorama)
+# Default order: first image first, last image last (no swap)
 DEFAULT_PANORAMA_ORDER = [
     "SIDE_LEFT",
     "FRONT_LEFT",
