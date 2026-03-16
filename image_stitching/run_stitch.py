@@ -106,6 +106,11 @@ def main() -> int:
         metavar="PATH",
         help="Path to camera_calibration parquet (default: same filename as --parquet in dataset/camera_calibration/).",
     )
+    parser.add_argument(
+        "--flip-horizontal",
+        action="store_true",
+        help="Flip the panorama horizontally (use if the result looks mirrored).",
+    )
     args = parser.parse_args()
 
     parquet_path = args.parquet
@@ -194,7 +199,7 @@ def main() -> int:
         print(f"Loading calibration from {cal_path} ...")
         calibration = load_camera_calibration(cal_path)
         print(f"Stitching {len(frames)} images with calibration (cylindrical) ...")
-        panorama = build_cylindrical_panorama_fast(
+        panorama, cam_index_map = build_cylindrical_panorama_fast(
             images=frames,
             calibration=calibration,
             out_width=4000,
@@ -217,9 +222,23 @@ def main() -> int:
         print("Error: stitching failed.", file=sys.stderr)
         return 1
 
+    if args.flip_horizontal:
+        panorama = cv2.flip(panorama, 1)
+        if args.method == "calibration":
+            cam_index_map = cv2.flip(cam_index_map, 1)
+        print("Flipped panorama horizontally.")
+
     args.output.parent.mkdir(parents=True, exist_ok=True)
     cv2.imwrite(str(args.output), panorama)
     print(f"Saved panorama to {args.output} (shape {panorama.shape}).")
+
+    if args.method == "calibration":
+        cammap_path = args.output.with_name(args.output.stem + "_cammap.png")
+        cv2.imwrite(str(cammap_path), cam_index_map)
+        order = get_panorama_order()
+        print(f"Saved camera map to {cammap_path}")
+        print(f"  Camera index legend: " + ", ".join(f"{i}={n}" for i, n in enumerate(order)) + ", 255=no coverage")
+
     return 0
 
 

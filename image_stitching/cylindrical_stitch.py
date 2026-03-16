@@ -123,15 +123,21 @@ def build_cylindrical_panorama_fast(
     images: Dict[str, np.ndarray],
     calibration: Dict[str, dict],
     order: Optional[List[str]] = None,
-    cylinder_radius: float = 15.0,
-    theta_range: tuple = (np.pi / 2, -np.pi / 2),
-    z_range: tuple = (-0.5, 4.0),
+    cylinder_radius = 6.0,
+    theta_range = (-2.1, 2.1),
+    z_range = (-1.5, 3.0),
     out_width: int = 4000,
     out_height: int = 1200,
-) -> np.ndarray:
+) -> tuple:
     """
     Vectorized version: build maps from (theta, y) to (u, v) per camera, then remap.
     Uses one camera per output pixel (first valid in order) to avoid blending cost.
+
+    Returns:
+        (panorama, cam_index_map) where cam_index_map is a uint8 array the same size
+        as the panorama. Each pixel value is the index of the camera in `order` that
+        contributed it (0 = first camera in order), or 255 if no camera covers it.
+        Young's inpainting script can use this to mask any single camera's region.
     """
     if order is None:
         order = list(DEFAULT_PANORAMA_ORDER)
@@ -148,11 +154,12 @@ def build_cylindrical_panorama_fast(
 
     panorama = np.zeros((out_height, out_width, 3), dtype=np.uint8)
     filled = np.zeros((out_height, out_width), dtype=bool)
+    cam_index_map = np.full((out_height, out_width), 255, dtype=np.uint8)
 
-    for cam_name in order:
+    for cam_idx, cam_name in enumerate(order):
         if cam_name not in images or cam_name not in calibration or filled.all():
             continue
-        img = images[cam_name]
+        img = cv2.flip(images[cam_name], 1)  # mirror each image, keep same spots
         cal = calibration[cam_name]
         K_orig = cal["K"]
         D = cal["D"]
@@ -179,6 +186,10 @@ def build_cylindrical_panorama_fast(
         map_v = v.astype(np.float32)
         remapped = cv2.remap(img_undist, map_u, map_v, cv2.INTER_LINEAR, borderMode=cv2.BORDER_CONSTANT)
         panorama[use] = remapped[use]
+        cam_index_map[use] = cam_idx
         filled[use] = True
 
-    return panorama
+    # Fix placement: first image ends up at last (right), last at first (left)
+    panorama = cv2.flip(panorama, 1)
+    cam_index_map = cv2.flip(cam_index_map, 1)
+    return panorama, cam_index_map

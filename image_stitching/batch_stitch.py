@@ -64,9 +64,11 @@ def process_parquet(
             print(f"  frame {i:04d}: no images loaded, skipping.")
             continue
 
-        panorama = build_cylindrical_panorama_fast(images=images, calibration=calibration)
+        panorama, cam_index_map = build_cylindrical_panorama_fast(images=images, calibration=calibration)
         cv2.imwrite(str(out_path), panorama)
-        print(f"  frame {i:04d} -> {out_path}")
+        cammap_path = out_path.with_name(out_path.stem + "_cammap.png")
+        cv2.imwrite(str(cammap_path), cam_index_map)
+        print(f"  frame {i:04d} -> {out_path} + {cammap_path.name}")
 
 
 def main() -> int:
