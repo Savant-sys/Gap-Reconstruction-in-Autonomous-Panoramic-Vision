@@ -55,8 +55,9 @@ def process_parquet(
 
     for i, ts in enumerate(frames_to_run):
         out_path = seg_dir / f"frame_{i:04d}.png"
-        if out_path.exists():
-            print(f"  frame {i:04d} already exists, skipping.")
+        cammap_path = out_path.with_name(out_path.stem + "_cammap.png")
+        if out_path.exists() and cammap_path.exists():
+            print(f"  frame {i:04d} already exists (panorama + cammap), skipping.")
             continue
 
         images = load_camera_images_from_parquet(parquet_path, frame_timestamp_micros=ts)
@@ -66,9 +67,8 @@ def process_parquet(
 
         panorama, cam_index_map = build_cylindrical_panorama_fast(images=images, calibration=calibration)
         cv2.imwrite(str(out_path), panorama)
-        cammap_path = out_path.with_name(out_path.stem + "_cammap.png")
         cv2.imwrite(str(cammap_path), cam_index_map)
-        print(f"  frame {i:04d} -> {out_path} + {cammap_path.name}")
+        print(f"  frame {i:04d} -> {out_path.name} + {cammap_path.name}")
 
 
 def main() -> int:
