@@ -76,7 +76,7 @@ def main():
     ap.add_argument("--root", default="~/waymo_data/masks")
     ap.add_argument("--size", type=int, default=256)
     ap.add_argument("--batch", type=int, default=6)
-    ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--workers", type=int, default=0 if os.name == "nt" else 4)
     ap.add_argument("--lrG", type=float, default=2e-4)
     ap.add_argument("--lrD", type=float, default=2e-4)
     ap.add_argument("--epochs", type=int, default=20)
@@ -355,10 +355,11 @@ def main():
             mask0 = fixed_viz["mask"]
             masked0 = fixed_viz["masked"]
 
-            edge_pred0 = make_pred_edge(edgeG, masked0, mask0)
-            out_logits0 = inpaintG(masked0, edge_pred0, mask0)
-            out0 = torch.sigmoid(out_logits0)
-            comp0 = out0 * mask0 + img0 * (1.0 - mask0)
+            with torch.no_grad():
+                edge_pred0 = make_pred_edge(edgeG, masked0, mask0)
+                out_logits0 = inpaintG(masked0, edge_pred0, mask0)
+                out0 = torch.sigmoid(out_logits0)
+                comp0 = out0 * mask0 + img0 * (1.0 - mask0)
 
             save_joint_epoch_viz(
                 out_dir=os.path.join(args.ckpt_dir, "viz_joint"),

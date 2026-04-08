@@ -84,6 +84,8 @@ def main():
             if panorama is None or cammap is None:
                 print(f"Skip (read failed): {frame_path}")
                 continue
+
+            # One sample per camera region (simulate single-camera dropout)
             for cam_id in range(5):
                 name = f"{stem}_cam{cam_id}"
                 mask = (cammap == cam_id).astype(np.uint8) * 255
@@ -93,7 +95,20 @@ def main():
                 cv2.imwrite(str(out_masks / f"{name}.png"), mask)
                 cv2.imwrite(str(out_masked / f"{name}.png"), masked)
                 total += 1
-        print(f"  {seg_dir.name}: {len(frames)} frames -> {len(frames)*5} triplets")
+
+            # One sample for the actual uncovered gap region (cam_index_map == 255)
+            gap_pixels = (cammap == 255)
+            if gap_pixels.any():
+                name = f"{stem}_gap"
+                mask = gap_pixels.astype(np.uint8) * 255
+                masked = panorama.copy()
+                masked[gap_pixels] = 0
+                cv2.imwrite(str(out_images / f"{name}.png"), panorama)
+                cv2.imwrite(str(out_masks / f"{name}.png"), mask)
+                cv2.imwrite(str(out_masked / f"{name}.png"), masked)
+                total += 1
+
+        print(f"  {seg_dir.name}: {len(frames)} frames -> triplets written")
     print(f"Done. Total triplets: {total}")
     print(f"  {out_images}")
     print(f"  {out_masks}")

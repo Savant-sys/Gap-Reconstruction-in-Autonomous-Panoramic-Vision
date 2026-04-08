@@ -67,7 +67,7 @@ def main():
     ap.add_argument("--root", default="~/waymo_data/masks")
     ap.add_argument("--size", type=int, default=256)
     ap.add_argument("--batch", type=int, default=8)
-    ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--workers", type=int, default=0 if os.name == "nt" else 4)
     ap.add_argument("--lr", type=float, default=2e-4)
     ap.add_argument("--epochs", type=int, default=20)
     ap.add_argument("--stage", choices=["edge", "inpaint"], required=True)

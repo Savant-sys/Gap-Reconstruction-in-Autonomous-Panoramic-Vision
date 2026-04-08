@@ -52,7 +52,7 @@ def main():
     ap.add_argument("--root", default="~/waymo_data/masks")
     ap.add_argument("--size", type=int, default=256)
     ap.add_argument("--batch", type=int, default=4)
-    ap.add_argument("--workers", type=int, default=4)
+    ap.add_argument("--workers", type=int, default=0 if os.name == "nt" else 4)
 
     ap.add_argument("--edge_ckpt", required=True, help="path to EdgeG checkpoint .pt")
     ap.add_argument("--inpaint_ckpt", required=True, help="path to InpaintG checkpoint .pt")
