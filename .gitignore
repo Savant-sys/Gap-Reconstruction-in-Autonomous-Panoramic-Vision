@@ -7,3 +7,4 @@ __pycache__/
 *.pyc
 *.pyo
 *.parquet
+/Pipeline_Final/full_pipeline_output_dir

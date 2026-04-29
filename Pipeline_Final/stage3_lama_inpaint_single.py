@@ -36,6 +36,7 @@ import argparse
 import os
 import shutil
 import subprocess
+import sys
 from pathlib import Path
 
 import cv2
@@ -114,7 +115,7 @@ def run_lama_predict(
     env = os.environ.copy()
 
     old_pythonpath = env.get("PYTHONPATH", "")
-    env["PYTHONPATH"] = str(lama_root) if old_pythonpath == "" else str(lama_root) + ":" + old_pythonpath
+    env["PYTHONPATH"] = str(lama_root) if old_pythonpath == "" else str(lama_root) + os.pathsep + old_pythonpath
 
     if gpu >= 0:
         env["CUDA_VISIBLE_DEVICES"] = str(gpu)
@@ -122,7 +123,7 @@ def run_lama_predict(
     env["PYTORCH_CUDA_ALLOC_CONF"] = "expandable_segments:True"
 
     cmd = [
-        "python",
+        sys.executable,
         str(predict_script),
         f"model.path={model_path}",
         f"model.checkpoint={checkpoint}",
