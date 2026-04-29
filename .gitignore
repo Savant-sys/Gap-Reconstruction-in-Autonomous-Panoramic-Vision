@@ -9,3 +9,4 @@ __pycache__/
 *.parquet
 /Pipeline_Final/full_pipeline_output_dir
 *.pt
+/lama
