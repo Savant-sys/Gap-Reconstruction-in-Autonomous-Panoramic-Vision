@@ -2,3 +2,8 @@
 *.png
 *.json
 inpainting model/__pycache__/edgeconnect_models.cpython-311.pyc
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.parquet
