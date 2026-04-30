@@ -10,3 +10,7 @@ __pycache__/
 /Pipeline_Final/full_pipeline_output_dir
 *.pt
 /lama
+/Pipeline_Final/full_pipeline_output_mask_0.5
+/Pipeline_Final/full_pipeline_output_mask_0.7
+/Pipeline_Final/full_pipeline_output_mask_0.9
+*.zip
