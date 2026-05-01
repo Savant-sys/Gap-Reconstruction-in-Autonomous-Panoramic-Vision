@@ -1,5 +1,5 @@
 # CMPE 297 – Final Project
-## Gap Reconstruction in Autonomous Panoramic Vision
+## Stitch, Mask, Inpaint, Detect: An Evaluation Pipeline for Assessing Object Detection With Missing Visual Context in Multi-Camera Environment
 
 ### Team – Group 1
 - Young Suh – 015391571 (Inpainting / Reconstruction)
