@@ -39,7 +39,7 @@ Raw camera images (parquet)
 
 ## What you need before starting
 
-- **Data:** Waymo Perception v2.0.1 (modular, no maps). Download the `camera_image` and `camera_calibration` parquet files from waymo.com/open and put them in:
+- **Dataset aggregation:** Waymo Perception v2.0.1 (modular, no maps). Download the `camera_image` and `camera_calibration` parquet files from waymo.com/open and put them in:
   - `image_stitching/dataset/camera_image/*.parquet`
   - `image_stitching/dataset/camera_calibration/*.parquet`  
   The calibration file for each segment must have the same filename as the camera_image file.
