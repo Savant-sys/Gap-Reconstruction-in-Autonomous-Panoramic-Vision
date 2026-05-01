@@ -44,8 +44,6 @@ Raw camera images (parquet)
   - `image_stitching/dataset/camera_calibration/*.parquet`  
   The calibration file for each segment must have the same filename as the camera_image file.
 
-- **Python:** Use the same environment for `image_stitching` and for the inpainting folder (e.g. `py` or `python`).
-
 ---
 
 ## Step 1: Stitching images to generate panoramas
