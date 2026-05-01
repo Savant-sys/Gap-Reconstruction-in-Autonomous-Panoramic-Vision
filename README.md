@@ -44,7 +44,7 @@ Raw camera images (parquet)
 
 ---
 
-## Step 1: Stitching (your panoramas)
+## Step 1: Stitching images to generate panoramas
 
 **What it does:** Reads 5 camera images from a parquet file and combines them into one wide image (panorama) using the calibration. It also saves a “cammap” image: same size as the panorama, but each pixel is a number 0–4 saying which camera that pixel came from (or 255 if no camera covered it). The inpainting step needs the cammap to know which region to mask.
 
@@ -76,7 +76,7 @@ So after Step 1 you have: a bunch of folders under `image_stitching/outputs/`, e
 
 ---
 
-## Step 2: Inpainting (fill in the “missing” camera)
+## Step 2: Inpainting for filling the missing region in camera
 
 **What it does:** For each panorama we pretend one camera failed. We use the cammap to black out that camera’s region, then an AI model (EdgeConnect) fills it in. The result is a “reconstructed” panorama. We compare it to the original and compute PSNR/SSIM.
 
@@ -118,7 +118,7 @@ py eval_edgeconnect.py --root ../inpainting/waymo_data/masks --edge_ckpt edge_ed
 
 ---
 
-## Order of operations (summary)
+## Order of operations
 
 1. Put Waymo parquet files in `image_stitching/dataset/` as above.
 2. Run stitching: `cd image_stitching` then `py batch_stitch.py` (or `--all-frames`).
