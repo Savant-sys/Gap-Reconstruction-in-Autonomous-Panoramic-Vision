@@ -10,7 +10,7 @@
 
 ## Project Objective
 
-Gap Reconstruction using image inpainting in Autonomous Panoramic Vision
+Gap reconstruction using image inpainting for generation of Autonomous Panoramic Vision
 
 ## Project Description
 
