@@ -1,5 +1,5 @@
 # CMPE 297 – Final Project
-## Stitch, Mask, Inpaint, Detect: An Evaluation Pipeline for Assessing Object Detection With Missing Visual Context in Multi-Camera Environment
+## Paper title: Stitch, Mask, Inpaint, Detect: An Evaluation Pipeline for Assessing Object Detection With Missing Visual Context in Multi-Camera Environment
 
 ### Team – Group 1
 - Young Suh – 015391571 (Inpainting / Reconstruction)
@@ -7,6 +7,10 @@
 - Lindsey Raven – 018200819 (Object Detection)
 
 ---
+
+## Project Objective
+
+Gap Reconstruction using image inpainting in Autonomous Panoramic Vision
 
 ## Project Description
 
@@ -24,8 +28,8 @@ The goal of this project is to develop a proof-of-concept pipeline that:
 
 ```
 Raw camera images (parquet)
-    → Step 1: Stitching     → one panorama image per frame (Michael's part)
-    → Step 2: Inpainting    → panorama with one region masked, then filled in by a model (Young's part)
+    → Step 1: Stitching         → one panorama image per frame (Michael's part)
+    → Step 2: Inpainting        → panorama with one region masked, then filled in by a model (Young's part)
     → Step 3: Object detection  → run a detector on original vs reconstructed (Lindsey’s part)
 ```
 
