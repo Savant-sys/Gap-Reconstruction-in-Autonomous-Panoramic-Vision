@@ -50,7 +50,7 @@ Raw camera images (parquet)
 
 ## Step 1: Stitching images to generate panoramas
 
-**What it does:** Reads 5 camera images from a parquet file and combines them into one wide image (panorama) using the calibration. It also saves a “cammap” image: same size as the panorama, but each pixel is a number 0–4 saying which camera that pixel came from (or 255 if no camera covered it). The inpainting step needs the cammap to know which region to mask.
+**What it does:** Reads 5 camera images [side left|front left|front|front right|side right] from a parquet file and combines them into one wide image (panorama) using the calibration. It also saves a “cammap” image: same size as the panorama, but each pixel is a number 0–4 saying which camera that pixel came from (or 255 if no camera covered it). The inpainting step needs the cammap to know which region to mask.
 
 **Where the code is:** `image_stitching/`
 
