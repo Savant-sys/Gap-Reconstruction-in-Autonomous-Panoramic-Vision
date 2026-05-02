@@ -25,6 +25,10 @@ Inpainting does not effectively recover masked regions, and negatively impacts b
 <img width="1463" height="453" alt="image" src="https://github.com/user-attachments/assets/fa0015b7-2c2a-4cc7-adad-131f703928c6" />
 Fig. 4. (a) Detection drop increases with mask size, (b) Inpainting results in fewer detection than the masked input, (c) Only a small fraction of lost detections are recovered after inpainting. 
 
+---
+## Conclusion
+While inpainting can restore visual continuity, it does not effectively recover the semantic information necessary for object detection.
+
 ## Project Objective
 
 Gap reconstruction using image inpainting for generation of Autonomous Panoramic Vision
