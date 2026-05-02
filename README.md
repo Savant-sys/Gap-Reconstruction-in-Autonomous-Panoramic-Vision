@@ -44,6 +44,7 @@ The goal of this project is to develop a proof-of-concept pipeline that:
 
 ## Conclusion
 While inpainting can restore visual continuity, it does not effectively recover the semantic information necessary for object detection.
+
 ---
 
 ## The pipeline (3 steps)
