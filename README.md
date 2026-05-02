@@ -28,9 +28,9 @@ The goal of this project is to develop a proof-of-concept pipeline that:
 
 ```
 Raw camera images (parquet)
-    → Step 1: Stitching         → one panorama image per frame (Michael's part)
-    → Step 2: Inpainting        → panorama with one region masked, then filled in by a model (Young's part)
-    → Step 3: Object detection  → run a detector on original vs reconstructed (Lindsey’s part)
+    → Step 1: Stitching                   → one panorama image per frame (Michael's part)
+    → Step 2: Inpainting using LaMa       → panorama with one region masked, then filled in by a model (Young's part)
+    → Step 3: Object detection using YOLO → run a detector on original vs reconstructed (Lindsey’s part)
 ```
 
 
