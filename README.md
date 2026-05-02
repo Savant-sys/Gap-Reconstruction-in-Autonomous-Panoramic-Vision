@@ -124,6 +124,7 @@ Our group made an end-to-end model which fuses LaMa and YOLO11 for generating sm
 
 From **repo root**
 
+windows version
 ```bash
 $PROJECT = "C:\Path\To\Gap-Reconstruction-in-Autonomous-Panoramic-Vision"
 
@@ -150,8 +151,8 @@ py run_full_waymo_gap_pipeline_dir.py `
 --yolo_device cpu
 ```
 
-```bash
 mac version
+```bash
 PROJECT="/path/to/Gap-Reconstruction-in-Autonomous-Panoramic-Vision"
 
 cd "$PROJECT/Pipeline_Final"
