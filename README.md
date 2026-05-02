@@ -150,6 +150,29 @@ py run_full_waymo_gap_pipeline_dir.py `
 --yolo_device cpu
 ```
 
+```bash
+mac version
+PROJECT="/path/to/Gap-Reconstruction-in-Autonomous-Panoramic-Vision"
+
+cd "$PROJECT/Pipeline_Final"
+
+python3 run_full_waymo_gap_pipeline_dir.py \
+  --camera_image_dir "$PROJECT/image_stitching/dataset/camera_image" \
+  --camera_calibration_dir "$PROJECT/image_stitching/dataset/camera_calibration" \
+  --output_root "full_pipeline_output_mask_0.5" \
+  --max_segments 1 \
+  --frames_per_segment 1 \
+  --lama_root "$PROJECT/lama" \
+  --lama_model_path "$PROJECT/lama/big-lama/big-lama" \
+  --lama_checkpoint best.ckpt \
+  --lama_gpu -1 \
+  --yolo_model "yolo11n.pt" \
+  --yolo_device mps \
+  --yolo_imgsz 640 \
+  --mask_percent 0.5 \
+  --skip_existing
+```
+
 Once it's working, you need to change from --max_segments 1 to --max_segments 0.
 
 **Output:**  
