@@ -7,7 +7,8 @@
 - Lindsey Raven – 018200819 (Object Detection)
 
 ---
-<img width="1846" height="936" alt="image" src="https://github.com/user-attachments/assets/7e03b7dd-d3e0-44f5-a60f-a2177a75f119" />
+<img width="1846" height="2068" alt="image" src="https://github.com/user-attachments/assets/8d44cf1e-1fc2-48a1-acef-b11faf2c9771" />
+
 
 
 ## Project Objective
