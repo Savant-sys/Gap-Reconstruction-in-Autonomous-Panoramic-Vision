@@ -26,8 +26,7 @@ Inpainting does not effectively recover masked regions, and negatively impacts b
 Fig. 4. (a) Detection drop increases with mask size, (b) Inpainting results in fewer detection than the masked input, (c) Only a small fraction of lost detections are recovered after inpainting. 
 
 ---
-## Conclusion
-While inpainting can restore visual continuity, it does not effectively recover the semantic information necessary for object detection.
+# Main Contents
 
 ## Project Objective
 
@@ -43,6 +42,8 @@ The goal of this project is to develop a proof-of-concept pipeline that:
 3. Reconstructs missing regions using image inpainting
 4. Evaluates whether object detection performance is preserved after reconstruction
 
+## Conclusion
+While inpainting can restore visual continuity, it does not effectively recover the semantic information necessary for object detection.
 ---
 
 ## The pipeline (3 steps)
