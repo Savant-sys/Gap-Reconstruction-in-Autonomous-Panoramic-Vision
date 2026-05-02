@@ -13,7 +13,7 @@
 Fig. 1. Camera Image warping, stitching, intentional masks insertion, and image inpainting by LaMa model
 
 ---
-<img width="1846" height="931" alt="image" src="https://github.com/user-attachments/assets/d461089d-6be1-4715-8e19-a3b52abddc1e" />
+<img width="1856" height="938" alt="image" src="https://github.com/user-attachments/assets/0f0e21d7-ffc3-4245-8178-12c4e950822b" />
 Fig. 2. Object detection performed on (a) original stitched image, (b) masked image, and (c) inpainted image by YOLO model
 
 ---
