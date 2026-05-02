@@ -20,6 +20,7 @@ Fig. 2. Object detection performed on (a) original stitched image, (b) masked im
 <img width="1462" height="551" alt="image" src="https://github.com/user-attachments/assets/97ea91a3-a5db-4c46-b778-47e4501ac875" />
 Fig. 3. (a) Detection performance and (b) Detection confidence for original, masked, and inpainted images
 
+Inpainting does not effectively recover masked regions, and negatively impacts both detection and confidence
 ## Project Objective
 
 Gap reconstruction using image inpainting for generation of Autonomous Panoramic Vision
