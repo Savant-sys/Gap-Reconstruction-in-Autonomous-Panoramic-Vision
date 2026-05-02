@@ -18,7 +18,7 @@ Fig. 2. Object detection performed on (a) original stitched image, (b) masked im
 
 ---
 <img width="1462" height="551" alt="image" src="https://github.com/user-attachments/assets/97ea91a3-a5db-4c46-b778-47e4501ac875" />
-Fig. 3. (a) Detection performance and (b) Detection confidence for original, masked, and inpainted
+Fig. 3. (a) Detection performance and (b) Detection confidence for original, masked, and inpainted images
 
 ## Project Objective
 
