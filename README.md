@@ -118,13 +118,35 @@ py eval_edgeconnect.py --root ../inpainting/waymo_data/masks --edge_ckpt edge_ed
 - `--edge_ckpt` and `--inpaint_ckpt` are the two generator checkpoint files (`.pt`) in `inpainting model/`.
 - `--save_images` writes result images; `--save_dir` is where they go.
 
-## Step 3: Classification and regression using YOLO11 model for inpainted images obtained at Step 2
+## Step 3: Classification and regression using YOLO11 model performed on inpainted images obtained at Step 2
 Our group made an end-to-end model which fuses LaMa and YOLO11 for generating smoothly connected panoramic visions with large field of view.
 
 From **repo root**
 
 ```bash
-python run_lama_yolo11_fusion.py
+$PROJECT = "C:\Path\To\Gap-Reconstruction-in-Autonomous-Panoramic-Vision"
+
+cd "$PROJECT\Pipeline_Final"
+
+py run_full_waymo_gap_pipeline_dir.py `
+  --camera_image_dir "$PROJECT\image_stitching\dataset\camera_image" `
+  --camera_calibration_dir "$PROJECT\image_stitching\dataset\camera_calibration" `
+  --output_root "full_pipeline_output_mask_0.5" `
+  --max_segments 1 `
+  --frames_per_segment 1 `
+  --lama_root "$PROJECT\lama" `
+  --lama_model_path "$PROJECT\lama\big-lama\big-lama" `
+  --lama_checkpoint best.ckpt `
+  --lama_gpu 0 `
+  --yolo_model "yolo11x.pt" `
+  --yolo_device 0 `
+  --mask_percent 0.5 `
+  --skip_existing
+
+(GPU command)
+--yolo_device 0
+(CPU command)
+--yolo_device cpu
 ```
 
 **Output:**  
