@@ -119,7 +119,9 @@ py eval_edgeconnect.py --root ../inpainting/waymo_data/masks --edge_ckpt edge_ed
 - `--save_images` writes result images; `--save_dir` is where they go.
 
 ## Step 3: Classification and regression using YOLO11 model for inpainted images obtained at Step 2
-Our group tried to make an end-to-end model which fuses LaMa and YOLO11.
+Our group made an end-to-end model which fuses LaMa and YOLO11 for generating smoothly connected panoramic visions with large field of view.
+commands:
+python run_lama_yolo11_fusion.py
 
 **Output:**  
 `inpainting model/eval_outputs/` — comparison and visualization images (e.g. `frame_0000_cam0_comp.png`, `frame_0000_cam0_viz.png`). That’s where you “see the pics” after inpainting.
