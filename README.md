@@ -78,7 +78,7 @@ So after Step 1 you have: a bunch of folders under `image_stitching/outputs/`, e
 
 ---
 
-## Step 2: Inpainting for filling the missing region in camera
+## Step 2: Inpainting for filling the missing region in camera images using LaMa model
 
 **What it does:** For each panorama we pretend one camera failed. We use the cammap to black out that camera’s region, then an AI model (EdgeConnect) fills it in. The result is a “reconstructed” panorama. We compare it to the original and compute PSNR/SSIM.
 
@@ -114,6 +114,9 @@ py eval_edgeconnect.py --root ../inpainting/waymo_data/masks --edge_ckpt edge_ed
 - `--root` points to the folder that contains `images/`, `masks/`, `masked/` (the one you built in 2a).
 - `--edge_ckpt` and `--inpaint_ckpt` are the two generator checkpoint files (`.pt`) in `inpainting model/`.
 - `--save_images` writes result images; `--save_dir` is where they go.
+
+# Step 3: Classification and regression using YOLO11 model for inpainted images obtained at Step 2
+Our group tried to make an end-to-end model which fuses LaMa and YOLO11.
 
 **Output:**  
 `inpainting model/eval_outputs/` — comparison and visualization images (e.g. `frame_0000_cam0_comp.png`, `frame_0000_cam0_viz.png`). That’s where you “see the pics” after inpainting.
