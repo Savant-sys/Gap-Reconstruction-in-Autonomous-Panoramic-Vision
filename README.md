@@ -10,17 +10,21 @@
 ## Image processing and Pipeline for our project
 
 <img width="2271" height="2065" alt="image" src="https://github.com/user-attachments/assets/a2efe663-a46f-4556-83bb-a69f42ac395f" />
-Fig. 1. Camera Image warping, stitching, intentional masks insertion, and image inpainting by LaMa model
+Fig. 1. Camera Image warping, stitching, intentional masks insertion, and image inpainting by LaMa model.
 
 ---
 <img width="1856" height="938" alt="image" src="https://github.com/user-attachments/assets/0f0e21d7-ffc3-4245-8178-12c4e950822b" />
-Fig. 2. Object detection performed on (a) original stitched image, (b) masked image, and (c) inpainted image by YOLO model
+Fig. 2. Object detection performed on (a) original stitched image, (b) masked image, and (c) inpainted image by YOLO model.
 
 ---
 <img width="1462" height="551" alt="image" src="https://github.com/user-attachments/assets/97ea91a3-a5db-4c46-b778-47e4501ac875" />
-Fig. 3. (a) Detection performance and (b) Detection confidence for original, masked, and inpainted images
+Fig. 3. (a) Detection performance and (b) Detection confidence for original, masked, and inpainted images.
 
-Inpainting does not effectively recover masked regions, and negatively impacts both detection and confidence
+Inpainting does not effectively recover masked regions, and negatively impacts both detection and confidence.
+
+<img width="1463" height="453" alt="image" src="https://github.com/user-attachments/assets/fa0015b7-2c2a-4cc7-adad-131f703928c6" />
+Fig. 4. (a) Detection drop increases with mask size, (b) Inpainting results in fewer detection than the masked input, (c) Only a small fraction of lost detections are recovered after inpainting. 
+
 ## Project Objective
 
 Gap reconstruction using image inpainting for generation of Autonomous Panoramic Vision
