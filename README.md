@@ -42,7 +42,8 @@ Raw camera images (parquet)
 
 ## What you need before starting
 
-- **Dataset aggregation:** Waymo Perception v2.0.1 (modular, no maps). Download the `camera_image` and `camera_calibration` parquet files from waymo.com/open and put them in:
+- **Dataset aggregation:** Waymo Perception v2.0.1 (modular, no maps). Training data should be downloaded from training folder (https://console.cloud.google.com/storage/browser/waymo_open_dataset_v_2_0_1/training?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))).
+- Download the `camera_image` and `camera_calibration` parquet files from validation folder (https://console.cloud.google.com/storage/browser/waymo_open_dataset_v_2_0_1/validation?pageState=(%22StorageObjectListTable%22:(%22f%22:%22%255B%255D%22))) and put them in:
   - `image_stitching/dataset/camera_image/*.parquet`
   - `image_stitching/dataset/camera_calibration/*.parquet`  
   The calibration file for each segment must have the same filename as the camera_image file.
@@ -148,6 +149,8 @@ py run_full_waymo_gap_pipeline_dir.py `
 (CPU command)
 --yolo_device cpu
 ```
+
+Once it's working, you need to change from --max_segments 1 to --max_segments 0.
 
 **Output:**  
 `inpainting model/eval_outputs/` — comparison and visualization images (e.g. `frame_0000_cam0_comp.png`, `frame_0000_cam0_viz.png`). That’s where you “see the pics” after inpainting.
