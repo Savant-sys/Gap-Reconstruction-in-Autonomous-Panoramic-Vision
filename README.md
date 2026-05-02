@@ -12,9 +12,11 @@
 <img width="2271" height="2065" alt="image" src="https://github.com/user-attachments/assets/a2efe663-a46f-4556-83bb-a69f42ac395f" />
 Fig. 1. Camera Image warping, stitching, intentional masks insertion, and image inpainting by LaMa model
 
+---
 <img width="1846" height="931" alt="image" src="https://github.com/user-attachments/assets/d461089d-6be1-4715-8e19-a3b52abddc1e" />
 Fig. 2. Object detection performed on (a) original stitched image, (b) masked image, and (c) inpainted image by YOLO model
 
+---
 ## Project Objective
 
 Gap reconstruction using image inpainting for generation of Autonomous Panoramic Vision
