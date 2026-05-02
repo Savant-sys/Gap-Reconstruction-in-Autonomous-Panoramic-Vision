@@ -115,7 +115,7 @@ py eval_edgeconnect.py --root ../inpainting/waymo_data/masks --edge_ckpt edge_ed
 - `--edge_ckpt` and `--inpaint_ckpt` are the two generator checkpoint files (`.pt`) in `inpainting model/`.
 - `--save_images` writes result images; `--save_dir` is where they go.
 
-# Step 3: Classification and regression using YOLO11 model for inpainted images obtained at Step 2
+## Step 3: Classification and regression using YOLO11 model for inpainted images obtained at Step 2
 Our group tried to make an end-to-end model which fuses LaMa and YOLO11.
 
 **Output:**  
