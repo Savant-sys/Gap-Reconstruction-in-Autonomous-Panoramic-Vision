@@ -104,7 +104,7 @@ So after Step 1 you have: a bunch of folders under `image_stitching/outputs/`, e
 
 ## Step 2: Inpainting for filling the missing region in camera images using LaMa model
 
-**What it does:** For each panorama we pretend one camera failed. We use the cammap to black out that camera’s region, then an AI model (EdgeConnect) fills it in. The result is a “reconstructed” panorama. We compare it to the original and compute PSNR/SSIM.
+**What it does:** For each panorama we pretend one camera failed. We use the cammap to black out that camera’s region, then an AI model (LaMA) fills it in. The result is a “reconstructed” panorama. We compare it to the original and compute PSNR/SSIM.
 
 **Where the code is:** `inpainting model/` (folder with a space in the name). The model weights are the `.pt` files in that folder (e.g. `edge_edgeG_epoch20.pt`, `inpaint_inpaintG_epoch30.pt`).
 
