@@ -14,3 +14,4 @@ __pycache__/
 /Pipeline_Final/full_pipeline_output_mask_0.7
 /Pipeline_Final/full_pipeline_output_mask_0.9
 *.zip
+/outputs
