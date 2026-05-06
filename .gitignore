@@ -2,3 +2,16 @@
 *.png
 *.json
 inpainting model/__pycache__/edgeconnect_models.cpython-311.pyc
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+*.parquet
+/Pipeline_Final/full_pipeline_output_dir
+*.pt
+/lama
+/Pipeline_Final/full_pipeline_output_mask_0.5
+/Pipeline_Final/full_pipeline_output_mask_0.7
+/Pipeline_Final/full_pipeline_output_mask_0.9
+*.zip
+/outputs
